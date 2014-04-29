@@ -2,12 +2,12 @@
 
 Summary:	Rxvt terminal with unicode support and some improvements
 Name:		urxvt
-Version:	9.19
+Version:	9.20
 Release:	1
 Group:		X11/Applications
 License:	GPL v2+
 Source0:	http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-%{version}.tar.bz2
-# Source0-md5:	45ad197eb9b5a840c0f65e3a8131921c
+# Source0-md5:	4a5b823f08d21036f94a6c51e94d025b
 Source1:	%{name}.desktop
 URL:		http://software.schmorp.de/
 BuildRequires:	autoconf
