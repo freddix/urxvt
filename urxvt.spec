@@ -3,7 +3,7 @@
 Summary:	Rxvt terminal with unicode support and some improvements
 Name:		urxvt
 Version:	9.20
-Release:	1
+Release:	2
 Group:		X11/Applications
 License:	GPL v2+
 Source0:	http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-%{version}.tar.bz2
@@ -15,9 +15,10 @@ BuildRequires:	fontconfig-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-devel
 BuildRequires:	sed
+BuildRequires:	startup-notification-devel
 BuildRequires:	xorg-libXext-devel
 BuildRequires:	xorg-libXft-devel
-BuildRequires:	xorg-libXpm-devel
+BuildRequires:	xorg-libXrender-devel
 BuildRequires:	zlib-devel
 Requires:	terminfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,13 +36,32 @@ URxvt is a Rxvt modification which includes:
 
 %build
 %configure \
-	--enable-256-color	\
-	--enable-everything	\
-	--enable-mousewheel	\
-	--enable-next-scroll	\
-	--enable-smart-resize	\
-	--with-term=rxvt
-
+	--disable-frills	    \
+	--disable-pixbuf	    \
+	--disable-smart-resize	    \
+	--enable-256-color	    \
+	--enable-combining	    \
+	--enable-fading		    \
+	--enable-font-styles	    \
+	--enable-iso14755	    \
+	--enable-keepscrolling	    \
+	--enable-lastlog	    \
+	--enable-mousewheel	    \
+	--enable-next-scroll	    \
+	--enable-perl		    \
+	--enable-pointer-blank	    \
+	--enable-rxvt-scroll	    \
+	--enable-selectionscrolling \
+	--enable-slipwheeling	    \
+	--enable-startup-notification	\
+	--enable-transparency	    \
+	--enable-unicode3	    \
+	--enable-utmp		    \
+	--enable-wtmp		    \
+	--enable-xft		    \
+	--enable-xim		    \
+	--enable-xterm-scroll	    \
+	--with-terminfo=%{_datadir}/terminfo
 %{__make} \
 	CXXFLAGS="%{rpmcxxflags}" \
 	CFLAGS="%{rpmcxxflags}"
